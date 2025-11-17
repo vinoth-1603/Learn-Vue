@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="bg-green-400">
+    <div id="app">
+        <h1 class="text-5xl m-5 text-red-700 font-bold">{{ head }}</h1>
+        <div class="border-2 m-5 mt-10 bg-amber-300">
+        <h1 class="text-5xl text-center p-5 text-cyan-900 font-bold font-mono">{{ msg }}</h1>
+        </div>
+    </div>
+    <script>
+        const { createApp } = Vue
+        createApp({
+            setup(){
+                return{
+                    head: "Text Interpolation:",
+                    msg: "Welcome to Vue Js"
+                }
+            }
+        }).mount("#app")
+
+    </script>
+    
+</body>
+</html>
