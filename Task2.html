@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 class="text-3xl m-5 text-red-700 font-bold">{{ head }}</h1>
+        <h1 class="m-5">{{ msg }}</h1>
+        <h2 :id="tagid">Hi, I am Id Binding</h2>
+        <h1 class="m-5">{{ msg1 }}</h1>
+        <h2 :class="tclass">Hi, I am Class Binding</h2>
+        <h1 class="m-5">Binding class conditionally:</h1>
+        <div class="m-5">
+        <h2 :class="isCon? 'one':'two'">Hi, I am Class Binding conditionally</h2>
+        <h2 :class="['two','two2']">Hi I am Array Binding Class</h2>
+        <h2 :class="{
+            one: isCon,
+            two: isbool
+        }">Hi I am object binding class conditionally</h2>
+        </div>
+        <div :style="basestyle">
+            Hi I am Style binding
+        </div>
+        <div :style="[basestyle,underline]">
+            Hi I am Array Style binding
+        </div>
+        
+
+        
+    </div>
+    <script>
+        const { createApp } = Vue
+        createApp({
+            setup(){
+                return{
+                    head: "Try V-bind:",
+                    tagid: "tag",
+                    msg: "Binding Id:",
+                    msg1: "Binding Class:",
+                    tclass: "t",
+                    isCon:true,
+                    isbool:false,
+                    basestyle:{
+                        color : "red",
+                        'font-size': "20px",
+
+                    },
+                    underline:{
+                        'text-decoration': "underline"
+                    }
+
+                }
+            }
+        }).mount("#app")
+
+    </script>
+
+    <style>
+        #tag{
+            text-decoration: underline;
+            margin-left: 30px;
+            color: brown;
+        }
+        .t{
+            text-decoration: underline;
+            margin-left: 30px;
+            color: rgb(65, 42, 165);
+        }
+        .one{
+            color: green;
+        }
+        .two{
+            color: red;
+        }
+        .two2{
+            text-decoration: underline;
+        }
+    </style>
+    
+    
+</body>
+</html>
