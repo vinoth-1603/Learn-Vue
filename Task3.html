@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body>
+    <div id="app" class="m-5">
+        <h1 class="text-blue-700 font-bold text-2xl mb-10">Conditional Rendering:</h1>
+        <div class="border-solid border-2 inline-block p-5 text-neutral-100 border-black">
+        <h1 v-if="num>0" class="font-bold text-2xl bg-green-400 p-3">The number is positive</h1>
+        <h1 v-else-if="num === 0" class="font-bold text-2xl bg-blue-400 p-3">The number is zero</h1>
+        <h1 v-else-if="num<0" class="font-bold text-2xl bg-red-400 p-3">The number is negative</h1>
+        <h1 v-else class="font-bold text-2xl bg-stone-900 p-3">Not a number</h1>
+        </div>
+        <div>
+            <h1 v-show="show" class="m-10 font-bold text-2xl">Hi I am using v-show</h1>
+        </div>
+    </div>
+    <script>
+        const { createApp } = Vue
+        createApp({
+            setup(){
+                return{
+                 num: 4,   
+                show:true, 
+                }
+            }
+        }).mount("#app")
+
+    </script>
+
+    <style>
+        
+    </style>
+    
+    
+</body>
+</html>

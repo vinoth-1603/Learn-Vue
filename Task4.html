@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ head }}</h1>
+        <h3>Array of Strings</h3>
+        <p v-for="name in names":key="name">{{ name }}</p>
+        <h3>Array of objects</h3>
+        <p v-for="name in fullname":key="name">{{name.fname}} {{name.lname}}</p>
+        <h3>Array of arrays</h3>
+        <div v-for="actor in actors":key="actor">
+            <h4>{{actor.name}}</h4>
+            <p v-for="(movies, index) in actor.movie":key="movies">{{index}} {{movies }}</p>
+            <hr>
+        </div>
+    </div>
+    <script>
+        const { createApp } = Vue
+        createApp({
+            setup(){
+                return{
+                    head: "List Rendering",
+                    names: ['Ajith', 'Vijay', 'Vinoth'],
+                    fullname: [
+                        {fname: 'Ajith', lname:'Kumar'},
+                        {fname: 'Vijay', lname:'Kumar'},
+                        {fname: 'Vinoth', lname:'Kumar'}
+                    ],
+                    actors: [
+                        {name: 'Ajith', movie: ['Billa', 'Veeram','Vivegam']},
+                        {name: 'Vijay', movie: ['Bigil', 'Gilli','Leo']},
+                        {name: 'Surya', movie: ['Singam', 'Ayan','Ganguva']}
+                    ]
+
+                }
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>
