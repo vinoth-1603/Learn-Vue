@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <center>
+    <div id="app">
+        <h1>Event Handling</h1>
+        <h2>{{ city }}</h2>
+        <button @click="changeCity">Change</button>
+        <h2>{{ count }}</h2>
+        <button @click="inc">Increment</button>
+        <button @click="dec">Decrement</button>
+        <button @click="incr">Increment by 2</button>
+        <button @click="decr(2)">Decrement by 2</button>
+    </div>
+    </center>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){
+                return{
+                   city: 'Trichy',
+                   count: 0
+                }
+            },
+            methods:{
+                changeCity(){
+                    this.city = 'Madurai'
+                },
+                inc(){
+                    this.count ++
+                },
+                dec(){
+                    this.count --
+                },
+                incr(){
+                    this.count += 2
+                },
+                decr(num){
+                    this.count -= num
+                }
+                
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>
