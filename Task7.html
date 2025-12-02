@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <center>
+    <div id="app">
+        <h1>Form</h1>
+        
+        <form @submit="submitform">
+            <label for="name">Name</label><br>
+            <input type="text" id="name" v-model="formdatas.name"><br>
+            <label for="em">E-Mail</label><br>
+            <input type="email" id="em" v-model="formdatas.email"><br>
+            <label for="add">Address</label><br>
+            <textarea id="add" v-model="formdatas.address"></textarea><br>
+            <label>Gender</label><br>
+            
+            <input type="radio" id="m" v-model="formdatas.rad" value="male">
+            <label for="m">Male</label>
+            <input type="radio" id="f" v-model="formdatas.rad" value="female">
+            <label for="f">Female</label>
+            <input type="radio" id="t" v-model="formdatas.rad" value="transgender">
+            <label for="t">Transgender</label><br>
+            <label for="city">City</label><br>
+            <select id="city" v-model="formdatas.city">
+                <option value="">Select a City</option>
+                <option>Madurai</option>
+                <option>Trichy</option>
+                <option>Sivaganga</option>
+                <option>chennai</option>
+                <option>Coimbatore</option>
+                <option>Theni</option>
+            </select><br>
+            <label for="course">Course</label><br>
+            <select id="course" multiple v-model="formdatas.course">
+                
+                <option>C</option>
+                <option>C++</option>
+                <option>Java</option>
+                <option>Python</option>
+                
+            </select><br>
+            <label>Skills</label><br>
+            <input id="h" type="checkbox" v-model="formdatas.skill" value="html">
+            <label for="h">HTML</label>
+            <input id="css" type="checkbox" v-model="formdatas.skill" value="css">
+            <label for="css">CSS</label>
+            <input id="java" type="checkbox" v-model="formdatas.skill" value="java">
+            <label for="java">JAVA</label>
+            <input id="python" type="checkbox" v-model="formdatas.skill" value="python">
+            <label for="python">PYTHON</label>
+            <input id=".net" type="checkbox" v-model="formdatas.skill" value=".net">
+            <label for=".net">.NET</label><br>
+            <br>
+            <button>Submit</button>
+        </form>
+
+    </div>
+    </center>
+    <script>
+        const { createApp } = Vue;
+        createApp({
+            data(){
+                return{
+                   formdatas:{
+                    name:'',
+                    email:'',
+                    address:'',
+                    city:'',
+                    course:[],
+                    rad: '',
+                    skill: []
+                   }
+                }
+            },
+            methods:{
+                submitform(event){
+                    event.preventDefault()
+                    console.log('Form Data',this.formdatas)
+                }
+                
+            }
+        }).mount("#app")
+    </script>
+</body>
+</html>
