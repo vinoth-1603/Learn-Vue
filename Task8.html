@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <center>
+    <div id="app">
+        <h1>Computed Properties</h1>
+        <h2 v-for="item in exp":key="item">{{item.name}} {{item.price}}</h2>
+        <label>Important item: </label>
+        <input type="checkbox" v-model="val">{{imp}}
+    </div>
+    </center>
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data(){
+                return{
+                    val: false,
+                  items:[
+                    {
+                        name: 'Mobile',
+                        price: 100
+                    },
+                    {
+                        name: 'TV',
+                        price: 200
+                    },
+                    {
+                        name: 'Bike',
+                        price: 400
+                    }
+                  ]
+            }
+        },
+            computed:{
+                exp(){
+                    return this.items.filter(item => item.price > 100)
+                },
+                imp(){
+                    if(this.val){
+                        return 'yes'
+                    }else{
+                        return 'no'
+                    }
+                }
+                
+            }
+        
+        }).mount("#app")
+    </script>
+</body>
+</html>
