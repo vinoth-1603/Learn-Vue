@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <center>
+    <div id="app">
+        <h1>Watchers</h1>
+        <h2>Volume</h2>
+        <h2>Volume: {{vol}}</h2>
+        <button @click="vol += 1">Increase</button>
+        <button @click="vol -= 1">Decrease</button>
+    </div>
+    </center>
+    <script>
+        const { createApp } = Vue
+        createApp({
+            data(){
+                return{
+                    vol:0
+                }
+                
+            },
+        watch:{
+            vol(newVal,oldVal){
+                if(newVal === 16 && newVal > oldVal){
+                    alert("High volume damage your hearing")
+                }
+            }
+        }
+        }).mount("#app")
+    </script>
+</body>
+</html>
